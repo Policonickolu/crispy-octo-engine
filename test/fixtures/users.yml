@@ -3,9 +3,14 @@
 one:
   name: MyString1
   email: MyString2@ed.fr
-  password_digest: 123456789
+  password_digest: User.digest('123456789')
 
 two:
   name: MyString3
   email: MyString4@ed.fr
-  password_digest: 123456789
+  password_digest: User.digest('23456789')
+
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
