@@ -37,10 +37,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        log_in @user
-        flash[:success] = "Utilisateur créé."
-        format.html { redirect_to @user }
-        format.json { render :show, status: :created, location: @user }
+        UserMailer.account_activation(@user).deliver_now
+        flash[:info] = "Please check your email to activate your account."
+        format.html { redirect_to root_url }
+        format.json { render :show, status: :created, location: root_url }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
