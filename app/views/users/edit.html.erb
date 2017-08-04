@@ -1,6 +1,9 @@
-<h1>Editing User</h1>
+<% provide(:title, "Modification Utilisateur") %>
+<% provide(:button_text, 'Enregistrer les modifications') %>
+
+<h1>Modifier un Utilisateur</h1>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Voir', @user %> |
+<%= link_to 'Retour', users_path %>
